@@ -1,16 +1,3 @@
-"""Per-user memory of which questions have already been served.
-
-Implemented as a hash table: `user_id -> {question hash: None}` (an insertion-ordered dict).
-"Have I seen this question?" is an O(1) lookup. Only a short fixed-size digest of the question
-text is stored (not the text), so trivial differences (case, extra spaces) don't defeat the check.
-
-The table is bounded: each user remembers their last `capacity` (50) distinct questions. Once
-full, the oldest entry is dropped for every new one, so a user never sees a repeat within 50
-questions, after which the oldest ones are allowed to come around again.
-
-History is in-process memory scoped to a play session: entries expire after `ttl_seconds`
-without activity, and are lost on a server restart.
-"""
 import hashlib
 import re
 import threading

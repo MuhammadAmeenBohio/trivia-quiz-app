@@ -1,8 +1,3 @@
-"""Question selection: over-fetch, discard anything this user has already seen, top up if short.
-
-Pure business logic (no FastAPI, no direct network): the fetcher, sleeper and history store are
-injected so it can be unit-tested without OpenTDB.
-"""
 import math
 import time
 from typing import Callable, Optional

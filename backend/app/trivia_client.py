@@ -1,4 +1,3 @@
-"""Thin client for the Open Trivia DB API. Knows OpenTDB's format; knows nothing about users or HTTP routes."""
 import html
 import random
 from typing import Optional
